@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form - Akr Disel Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .form-container {
+            padding: 2rem;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            width: 50%;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container form input, .form-container form button {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+        }
+        .form-container form button {
+            background: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Order Form</h1>
+        <p>Please fill in your details below</p>
+    </header>
+    
+    <div class="form-container">
+        <form action="https://formspree.io/f/mpzvnkzj" method="POST">
+            <input type="hidden" name="product" id="product-input">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Akr Disel Service. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const product = params.get('product');
+            document.getElementById('product-input').value = product;
+        };
+    </script>
+</body>
+</html>
+
